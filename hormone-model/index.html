@@ -1,0 +1,159 @@
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Hormone → Body Fat Model</title>
+		<link rel="stylesheet" href="styles.css" />
+	</head>
+	<body>
+		<main class="app">
+					<header class="app-header">
+						<h1>Hormones & Body Fat — Interactive Model</h1>
+						<p class="lead">Adjust hormone sliders (0–100). Values are relative; 50 = neutral baseline. The model visualizes relative fat distribution across body regions for men and women.</p>
+					</header>
+
+					<div class="layout">
+						<section class="visual">
+							<div class="card">
+								<h2>Estimated Body Fat Distribution</h2>
+								<div class="visual-row">
+									<div class="figure-wrap">
+										<div class="zones">
+											<!-- Ordered zones: Arms, Shoulders/Upper Back, Chest, Abdomen/Lower Back, Hips, Thighs -->
+											<div class="zone" data-region="arms">
+												<div class="zone-label">Arms</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+											<div class="zone" data-region="shoulders">
+												<div class="zone-label">Shoulders &amp; Upper Back</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+											<div class="zone" data-region="chest">
+												<div class="zone-label">Chest</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+											<div class="zone" data-region="abdomen">
+												<div class="zone-label">Abdomen &amp; Lower Back</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+											<div class="zone" data-region="hips">
+												<div class="zone-label">Hips</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+											<div class="zone" data-region="thighs">
+												<div class="zone-label">Thighs</div>
+												<div class="bar">
+													<div class="bar-track">
+														<div class="bar-fill-left"></div>
+														<div class="bar-fill-right"></div>
+														<div class="bar-center" aria-hidden="true"></div>
+														<div class="bar-value">50%</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="metrics">
+										<p class="summary-note">The horizontal bars on the left visualize relative fat distribution across body zones. Move the hormone sliders to see distributions shift. Use the baseline slider (right) to compute absolute BF contributions.</p>
+										<p style="font-size:12px;color:var(--muted);margin-top:8px">Tip: hover a bar to read the exact percentage and absolute BF.</p>
+									</div>
+								</div>
+								<p class="note">This is a simplified model for demonstration and educational purposes only.</p>
+							</div>
+						</section>
+
+						<section class="controls">
+							<form id="controlsForm" aria-label="Hormone controls">
+								<div class="control-row">
+									<label for="gender">Gender</label>
+									<select id="gender" name="gender">
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+									</select>
+								</div>
+
+								<!-- baseline body fat slider -->
+								<div class="control-row">
+									<label for="baselineSlider">Baseline body fat (%) <button class="info" type="button" data-tooltip="Baseline overall body fat percentage used to compute absolute per-region fat">i</button></label>
+									<input id="baselineSlider" name="baselineSlider" type="range" min="5" max="50" value="25" />
+									<output id="baselineSliderVal">25</output>
+								</div>
+
+								<div class="control-row">
+									<label for="insulin">Insulin <button class="info" type="button" data-tooltip="Promotes glucose uptake and fat storage when elevated">i</button></label>
+									<input id="insulin" name="insulin" type="range" min="0" max="100" value="50" />
+									<output id="insulinVal">50</output>
+								</div>
+
+								<div class="control-row">
+									<label for="cortisol">Cortisol <button class="info" type="button" data-tooltip="Stress hormone that favors visceral fat when chronically high">i</button></label>
+									<input id="cortisol" name="cortisol" type="range" min="0" max="100" value="50" />
+									<output id="cortisolVal">50</output>
+								</div>
+
+								<div class="control-row">
+									<label for="testosterone">Testosterone <button class="info" type="button" data-tooltip="Supports lean mass and reduces fat deposition in many regions">i</button></label>
+									<input id="testosterone" name="testosterone" type="range" min="0" max="100" value="50" />
+									<output id="testosteroneVal">50</output>
+								</div>
+
+								<div class="control-row">
+									<label for="estrogen">Estrogen <button class="info" type="button" data-tooltip="Influences fat distribution (often more gluteo-femoral fat in females)">i</button></label>
+									<input id="estrogen" name="estrogen" type="range" min="0" max="100" value="50" />
+									<output id="estrogenVal">50</output>
+								</div>
+
+								<div class="control-actions">
+									<button id="resetBtn" type="button">Reset</button>
+									<button id="randomBtn" type="button">Randomize</button>
+								</div>
+							</form>
+						</section>
+					</div>
+
+					<footer class="app-footer">
+						<p>Ready for GitHub Pages. To publish, push this folder to a repository and enable Pages on the `main` (or `gh-pages`) branch.</p>
+					</footer>
+		</main>
+
+		<script type="module" src="script.js"></script>
+	</body>
+</html>
