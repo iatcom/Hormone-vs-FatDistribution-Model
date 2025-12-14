@@ -12,6 +12,10 @@
 					<header class="app-header">
 						<h1>Hormones & Body Fat — Interactive Model</h1>
 						<p class="lead">Adjust hormone sliders (0–100). Values are relative; 50 = neutral baseline. The model visualizes relative fat distribution across body regions for men and women.</p>
+						<div class="summary-top">
+							<p class="summary-note">The horizontal bars on the left visualize relative fat distribution across body zones. Move the hormone sliders to see distributions shift. Use the baseline slider (right) to compute absolute BF contributions.</p>
+							<p style="font-size:12px;color:var(--muted);margin-top:8px">Tip: hover a bar to read the exact percentage and absolute BF.</p>
+						</div>
 					</header>
 
 					<div class="layout">
@@ -20,71 +24,150 @@
 								<h2>Estimated Body Fat Distribution</h2>
 								<div class="visual-row">
 									<div class="figure-wrap">
-										<div class="zones">
-											<!-- Ordered zones: Arms, Shoulders/Upper Back, Chest, Abdomen/Lower Back, Hips, Thighs -->
-											<div class="zone" data-region="arms">
-												<div class="zone-label">Arms</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+										<div class="zones-grid">
+											<!-- Male column -->
+											<div class="zones-column">
+												<h3 class="gender-title">Men</h3>
+												<div class="zones" data-gender="male">
+													<!-- Ordered zones: Arms, Shoulders/Upper Back, Chest, Abdomen/Lower Back, Hips, Thighs -->
+													<div class="zone" data-region="arms" data-gender="male">
+														<div class="zone-label">Arms</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="shoulders" data-gender="male">
+														<div class="zone-label">Shoulders &amp; Upper Back</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="chest" data-gender="male">
+														<div class="zone-label">Chest</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="abdomen" data-gender="male">
+														<div class="zone-label">Abdomen &amp; Lower Back</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="hips" data-gender="male">
+														<div class="zone-label">Hips</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="thighs" data-gender="male">
+														<div class="zone-label">Thighs</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
-											<div class="zone" data-region="shoulders">
-												<div class="zone-label">Shoulders &amp; Upper Back</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+
+											<!-- Female column -->
+											<div class="zones-column">
+												<h3 class="gender-title">Women</h3>
+												<div class="zones" data-gender="female">
+													<div class="zone" data-region="arms" data-gender="female">
+														<div class="zone-label">Arms</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
-											<div class="zone" data-region="chest">
-												<div class="zone-label">Chest</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+													<div class="zone" data-region="shoulders" data-gender="female">
+														<div class="zone-label">Shoulders &amp; Upper Back</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
-											<div class="zone" data-region="abdomen">
-												<div class="zone-label">Abdomen &amp; Lower Back</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+													<div class="zone" data-region="chest" data-gender="female">
+														<div class="zone-label">Chest</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
-											<div class="zone" data-region="hips">
-												<div class="zone-label">Hips</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+													<div class="zone" data-region="abdomen" data-gender="female">
+														<div class="zone-label">Abdomen &amp; Lower Back</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
-												</div>
-											</div>
-											<div class="zone" data-region="thighs">
-												<div class="zone-label">Thighs</div>
-												<div class="bar">
-													<div class="bar-track">
-														<div class="bar-fill-left"></div>
-														<div class="bar-fill-right"></div>
-														<div class="bar-center" aria-hidden="true"></div>
-														<div class="bar-value">50%</div>
+													<div class="zone" data-region="hips" data-gender="female">
+														<div class="zone-label">Hips</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+													<div class="zone" data-region="thighs" data-gender="female">
+														<div class="zone-label">Thighs</div>
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
@@ -92,8 +175,7 @@
 									</div>
 
 									<div class="metrics">
-										<p class="summary-note">The horizontal bars on the left visualize relative fat distribution across body zones. Move the hormone sliders to see distributions shift. Use the baseline slider (right) to compute absolute BF contributions.</p>
-										<p style="font-size:12px;color:var(--muted);margin-top:8px">Tip: hover a bar to read the exact percentage and absolute BF.</p>
+										<!-- summary moved to header to free space for bars -->
 									</div>
 								</div>
 								<p class="note">This is a simplified model for demonstration and educational purposes only.</p>
@@ -102,13 +184,7 @@
 
 						<section class="controls">
 							<form id="controlsForm" aria-label="Hormone controls">
-								<div class="control-row">
-									<label for="gender">Gender</label>
-									<select id="gender" name="gender">
-										<option value="male">Male</option>
-										<option value="female">Female</option>
-									</select>
-								</div>
+								<!-- Gender selector removed: both sexes visualized simultaneously -->
 
 								<!-- baseline body fat slider -->
 								<div class="control-row">
@@ -154,6 +230,6 @@
 					</footer>
 		</main>
 
-		<script type="module" src="script.js"></script>
+			<script src="script.js"></script>
 	</body>
 </html>
