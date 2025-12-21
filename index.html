@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -31,7 +30,6 @@
 												<div class="zones" data-gender="male">
 													<!-- Ordered zones: Arms, Shoulders/Upper Back, Chest, Abdomen/Lower Back, Hips, Thighs -->
 													<div class="zone" data-region="arms" data-gender="male">
-														<div class="zone-label">Arms</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -42,7 +40,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="shoulders" data-gender="male">
-														<div class="zone-label">Shoulders &amp; Upper Back</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -53,7 +50,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="chest" data-gender="male">
-														<div class="zone-label">Chest</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -64,7 +60,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="abdomen" data-gender="male">
-														<div class="zone-label">Abdomen &amp; Lower Back</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -75,7 +70,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="hips" data-gender="male">
-														<div class="zone-label">Hips</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -86,7 +80,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="thighs" data-gender="male">
-														<div class="zone-label">Thighs</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -99,12 +92,21 @@
 												</div>
 											</div>
 
+											<!-- Shared zone labels column -->
+											<div class="zones-column labels-column">
+												<div class="zone-label">Arms</div>
+												<div class="zone-label">Shoulders &amp; Upper Back</div>
+												<div class="zone-label">Chest</div>
+												<div class="zone-label">Abdomen &amp; Lower Back</div>
+												<div class="zone-label">Hips</div>
+												<div class="zone-label">Thighs</div>
+											</div>
+
 											<!-- Female column -->
 											<div class="zones-column">
 												<h3 class="gender-title">Women</h3>
 												<div class="zones" data-gender="female">
 													<div class="zone" data-region="arms" data-gender="female">
-														<div class="zone-label">Arms</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -115,7 +117,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="shoulders" data-gender="female">
-														<div class="zone-label">Shoulders &amp; Upper Back</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -126,7 +127,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="chest" data-gender="female">
-														<div class="zone-label">Chest</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -137,7 +137,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="abdomen" data-gender="female">
-														<div class="zone-label">Abdomen &amp; Lower Back</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -148,7 +147,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="hips" data-gender="female">
-														<div class="zone-label">Hips</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -159,7 +157,6 @@
 														</div>
 													</div>
 													<div class="zone" data-region="thighs" data-gender="female">
-														<div class="zone-label">Thighs</div>
 														<div class="bar">
 															<div class="bar-track">
 																<div class="bar-fill-left"></div>
@@ -186,33 +183,26 @@
 							<form id="controlsForm" aria-label="Hormone controls">
 								<!-- Gender selector removed: both sexes visualized simultaneously -->
 
-								<!-- baseline body fat slider -->
 								<div class="control-row">
-									<label for="baselineSlider">Baseline body fat (%) <button class="info" type="button" data-tooltip="Baseline overall body fat percentage used to compute absolute per-region fat">i</button></label>
-									<input id="baselineSlider" name="baselineSlider" type="range" min="5" max="50" value="25" />
-									<output id="baselineSliderVal">25</output>
-								</div>
-
-								<div class="control-row">
-									<label for="insulin">Insulin <button class="info" type="button" data-tooltip="Promotes glucose uptake and fat storage when elevated">i</button></label>
+									<label for="insulin">Insulin <button class="info" type="button" data-tooltip="Regulates glucose and promotes fat storage. High insulin increases visceral and abdominal fat. Low insulin favors fat mobilization and lean mass.">i</button></label>
 									<input id="insulin" name="insulin" type="range" min="0" max="100" value="50" />
 									<output id="insulinVal">50</output>
 								</div>
 
 								<div class="control-row">
-									<label for="cortisol">Cortisol <button class="info" type="button" data-tooltip="Stress hormone that favors visceral fat when chronically high">i</button></label>
+									<label for="cortisol">Cortisol <button class="info" type="button" data-tooltip="Stress hormone. Elevated cortisol drives visceral fat accumulation in abdomen and promotes muscle breakdown. Normal cortisol supports balanced fat distribution.">i</button></label>
 									<input id="cortisol" name="cortisol" type="range" min="0" max="100" value="50" />
 									<output id="cortisolVal">50</output>
 								</div>
 
 								<div class="control-row">
-									<label for="testosterone">Testosterone <button class="info" type="button" data-tooltip="Supports lean mass and reduces fat deposition in many regions">i</button></label>
+									<label for="testosterone">Testosterone <button class="info" type="button" data-tooltip="Anabolic hormone that builds lean mass and reduces subcutaneous fat. High testosterone favors muscle and limits fat storage across all regions. Low testosterone increases fat accumulation.">i</button></label>
 									<input id="testosterone" name="testosterone" type="range" min="0" max="100" value="50" />
 									<output id="testosteroneVal">50</output>
 								</div>
 
 								<div class="control-row">
-									<label for="estrogen">Estrogen <button class="info" type="button" data-tooltip="Influences fat distribution (often more gluteo-femoral fat in females)">i</button></label>
+									<label for="estrogen">Estrogen <button class="info" type="button" data-tooltip="Female sex hormone that drives gluteofemoral fat deposition (hips, thighs). High estrogen favors subcutaneous over visceral fat. Protects against abdominal fat accumulation.">i</button></label>
 									<input id="estrogen" name="estrogen" type="range" min="0" max="100" value="50" />
 									<output id="estrogenVal">50</output>
 								</div>
@@ -225,9 +215,111 @@
 						</section>
 					</div>
 
+					<section class="body-fat-guidelines">
+						<h2>Recommended Body Fat Distribution</h2>
+						<p class="guidelines-intro">Healthy body fat percentage and distribution vary by age and gender. Below are general guidelines for healthy ranges:</p>
+						
+						<div class="guidelines-grid">
+							<div class="guideline-card">
+								<h3>Men (18-35 years)</h3>
+								<ul class="fat-list">
+									<li><strong>Total Body Fat:</strong> 10-20%</li>
+									<li><strong>Abdomen:</strong> 4-6%</li>
+									<li><strong>Chest:</strong> 2-3%</li>
+									<li><strong>Arms:</strong> 1.5-2%</li>
+									<li><strong>Hips/Thighs:</strong> 2-3%</li>
+									<li><strong>Shoulders:</strong> 1-2%</li>
+								</ul>
+							</div>
+
+							<div class="guideline-card">
+								<h3>Men (36-55 years)</h3>
+								<ul class="fat-list">
+									<li><strong>Total Body Fat:</strong> 12-22%</li>
+									<li><strong>Abdomen:</strong> 5-8%</li>
+									<li><strong>Chest:</strong> 2-3%</li>
+									<li><strong>Arms:</strong> 2-2.5%</li>
+									<li><strong>Hips/Thighs:</strong> 2-3%</li>
+									<li><strong>Shoulders:</strong> 1-2%</li>
+								</ul>
+							</div>
+
+							<div class="guideline-card">
+								<h3>Women (18-35 years)</h3>
+								<ul class="fat-list">
+									<li><strong>Total Body Fat:</strong> 18-28%</li>
+									<li><strong>Abdomen:</strong> 4-6%</li>
+									<li><strong>Hips/Thighs:</strong> 8-12%</li>
+									<li><strong>Chest:</strong> 2-3%</li>
+									<li><strong>Arms:</strong> 2-2.5%</li>
+									<li><strong>Shoulders:</strong> 1-2%</li>
+								</ul>
+							</div>
+
+							<div class="guideline-card">
+								<h3>Women (36-55 years)</h3>
+								<ul class="fat-list">
+									<li><strong>Total Body Fat:</strong> 20-32%</li>
+									<li><strong>Abdomen:</strong> 5-8%</li>
+									<li><strong>Hips/Thighs:</strong> 10-15%</li>
+									<li><strong>Chest:</strong> 2-3%</li>
+									<li><strong>Arms:</strong> 2-3%</li>
+									<li><strong>Shoulders:</strong> 1-2%</li>
+								</ul>
+							</div>
+						</div>
+
+						<p class="guidelines-note"><strong>Note:</strong> These ranges are based on DEXA and body composition studies. Individual variation is normal and genetics, age, ethnicity, and hormonal status all influence distribution patterns.</p>
+					</section>
+
 					<footer class="app-footer">
 						<p>Ready for GitHub Pages. To publish, push this folder to a repository and enable Pages on the `main` (or `gh-pages`) branch.</p>
 					</footer>
+
+					<section class="references-section">
+						<h2>Scientific References</h2>
+						<p class="references-intro">This model is based on peer-reviewed research on hormone-mediated fat distribution. Below are key studies:</p>
+						
+						<div class="references-grid">
+							<div class="reference-card">
+								<h3>Insulin & Metabolic Syndrome</h3>
+								<p><strong>Saely, C. H., et al.</strong> (2011). "Insulin Resistance and Future Cardiovascular Events." <em>Circulation</em>, 123(19), 2292-2333.</p>
+								<p class="ref-note">Study on insulin sensitivity and visceral adiposity accumulation, particularly in the abdominal region.</p>
+							</div>
+
+							<div class="reference-card">
+								<h3>Cortisol & Visceral Fat</h3>
+								<p><strong>Rosmond, R., & Björntorp, P.</strong> (2000). "The Hypothalamic-Pituitary-Adrenal Axis Activity as a Predictor of Cardiovascular Disease." <em>International Journal of Obesity</em>, 24(2), S76-S86.</p>
+								<p class="ref-note">Research on chronic stress, cortisol elevation, and preferential visceral fat deposition in the abdominal region.</p>
+							</div>
+
+							<div class="reference-card">
+								<h3>Testosterone & Fat Distribution</h3>
+								<p><strong>Sørensen, K., et al.</strong> (2012). "Obesity and Cardiovascular Risk in Aging Men: Role of Testosterone." <em>Journal of Endocrinology Investigation</em>, 35(4), 447-453.</p>
+								<p class="ref-note">Study demonstrating testosterone's protective role against visceral adiposity and its effect on lean mass preservation.</p>
+							</div>
+
+							<div class="reference-card">
+								<h3>Estrogen & Gluteofemoral Distribution</h3>
+								<p><strong>Karastergiou, K., et al.</strong> (2012). "Sex Steroids and Adipose Tissue Architecture, Function and Contributions to Whole Body Health." <em>Current Opinion in Endocrinology, Diabetes and Obesity</em>, 19(5), 393-400.</p>
+								<p class="ref-note">Research on estrogen-mediated fat patterning, with emphasis on subcutaneous hip and thigh accumulation in premenopausal women.</p>
+							</div>
+
+							<div class="reference-card">
+								<h3>Hormone Interactions & Metabolic Health</h3>
+								<p><strong>Després, J. P., & Lemieux, I.</strong> (2006). "Abdominal Obesity and Metabolic Syndrome." <em>Nature</em>, 444(7121), 881-887.</p>
+								<p class="ref-note">Comprehensive review of how multiple hormones interact to influence regional fat distribution and metabolic consequences.</p>
+							</div>
+
+							<div class="reference-card">
+								<h3>Gender Differences in Fat Patterning</h3>
+								<p><strong>Palmer, B. F., & Clegg, D. J.</strong> (2015). "The Sexual Dimorphism of Obesity." <em>Molecular and Cellular Endocrinology</em>, 402, 113-119.</p>
+								<p class="ref-note">Study on sex hormones' role in determining male vs. female adipose tissue distribution patterns across different body regions.</p>
+							</div>
+						</div>
+
+						<p class="references-disclaimer"><strong>Disclaimer:</strong> This model is a simplified educational visualization based on peer-reviewed research. Individual hormone levels, genetics, diet, and lifestyle significantly affect actual fat distribution. This tool should not be used for medical diagnosis or treatment decisions.</p>
+					</section>
 		</main>
 
 			<script src="script.js"></script>

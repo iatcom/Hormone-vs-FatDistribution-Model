@@ -1,4 +1,3 @@
-
 // Simple, readable mapping from normalized hormone slider values (0-100)
 // to an estimated monthly percentage change in body fat. This is a toy model
 // built for visualization/education only.
@@ -20,10 +19,10 @@ export function computeBodyFatImpact(hormones, baselinePercent = 25) {
 	const e = norm(hormones.estrogen || 50);
 	// Coefficients chosen for the reduced 4-hormone model
 	const coeff = {
-		insulin: 1.0,    // insulin strongly promotes fat storage
-		cortisol: 0.6,   // stress hormone increases fat (esp visceral)
-		testosterone: -0.7, // testosterone protects/helps reduce fat
-		estrogen: 0.1    // estrogen has smaller direct effect here
+	insulin: 1.0,    // insulin strongly promotes fat storage
+	cortisol: 0.6,   // stress hormone increases fat (esp visceral)
+	testosterone: -0.7, // testosterone protects/helps reduce fat
+	estrogen: 0.1    // estrogen has smaller direct effect here
 	};
 
 	// Weighted sum -> change factor per month (percent points)
@@ -54,7 +53,9 @@ export function computeDistribution(hormones, gender = 'male'){
 	const c = norm(hormones.cortisol || 50);
 	const t = norm(hormones.testosterone || 50);
 	const e = norm(hormones.estrogen || 50);
-
+	
+	// All hormones are independent - no interdependencies
+	
 	// Base distributions (prior) for male/female (sum to 100)
 	const base = {
 		male:   {abdomen:40, hips:10, thighs:15, arms:15, chest:20},
@@ -79,12 +80,14 @@ export function computeDistribution(hormones, gender = 'male'){
 	Object.keys(b).forEach(region=>{
 		const baseVal = b[region];
 		const eff = effects[region];
-		// compute a small offset from hormones
-		const offset = (i * (eff.insulin||0)) + (c * (eff.cortisol||0))
-					 + (t * (eff.testosterone||0)) + (e * (eff.estrogen||0));
-		// Convert offset into a multiplier factor around 1
-		const factor = 1 + offset * 0.12; // scale down impact
-		const val = Math.max(0.1, baseVal * factor);
+		// Use independent hormones directly without interactions
+		const offset = (i * (eff.insulin||0)) + (c * (eff.cortisol||0)) + (t * (eff.testosterone||0)) + (e * (eff.estrogen||0));
+		// Linear transition without damping - keeps changes proportional
+		const factor = 1 + offset * 0.35; // Direct linear scaling
+		// Softer, more linear clamping - no hard boundaries
+		// Use smooth boundaries that don't create sudden changes
+		const clampedFactor = Math.max(0.65, Math.min(1.35, factor));
+		const val = baseVal * clampedFactor;
 		raw[region] = val;
 	});
 
