@@ -22,13 +22,19 @@
 							<div class="card">
 								<h2>Estimated Body Fat Distribution</h2>
 								<div class="visual-row">
-									<div class="figure-wrap">
-										<div class="zones-grid">
-											<!-- Male column -->
-											<div class="zones-column">
-												<h3 class="gender-title">Men</h3>
-												<div class="zones" data-gender="male">
-													<!-- Ordered zones: Arms, Shoulders/Upper Back, Chest, Abdomen/Lower Back, Hips, Thighs -->
+									<table class="distribution-table">
+										<thead>
+											<tr>
+												<th class="label-col">Body Region</th>
+												<th class="gender-col">Men</th>
+												<th class="gender-col">Women</th>
+											</tr>
+										</thead>
+										<tbody>
+											<!-- Arms -->
+											<tr class="region-row">
+												<td class="region-label">Arms</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="arms" data-gender="male">
 														<div class="bar">
 															<div class="bar-track">
@@ -39,73 +45,8 @@
 															</div>
 														</div>
 													</div>
-													<div class="zone" data-region="shoulders" data-gender="male">
-														<div class="bar">
-															<div class="bar-track">
-																<div class="bar-fill-left"></div>
-																<div class="bar-fill-right"></div>
-																<div class="bar-center" aria-hidden="true"></div>
-																<div class="bar-value">--</div>
-															</div>
-														</div>
-													</div>
-													<div class="zone" data-region="chest" data-gender="male">
-														<div class="bar">
-															<div class="bar-track">
-																<div class="bar-fill-left"></div>
-																<div class="bar-fill-right"></div>
-																<div class="bar-center" aria-hidden="true"></div>
-																<div class="bar-value">--</div>
-															</div>
-														</div>
-													</div>
-													<div class="zone" data-region="abdomen" data-gender="male">
-														<div class="bar">
-															<div class="bar-track">
-																<div class="bar-fill-left"></div>
-																<div class="bar-fill-right"></div>
-																<div class="bar-center" aria-hidden="true"></div>
-																<div class="bar-value">--</div>
-															</div>
-														</div>
-													</div>
-													<div class="zone" data-region="hips" data-gender="male">
-														<div class="bar">
-															<div class="bar-track">
-																<div class="bar-fill-left"></div>
-																<div class="bar-fill-right"></div>
-																<div class="bar-center" aria-hidden="true"></div>
-																<div class="bar-value">--</div>
-															</div>
-														</div>
-													</div>
-													<div class="zone" data-region="thighs" data-gender="male">
-														<div class="bar">
-															<div class="bar-track">
-																<div class="bar-fill-left"></div>
-																<div class="bar-fill-right"></div>
-																<div class="bar-center" aria-hidden="true"></div>
-																<div class="bar-value">--</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											</div>
-
-											<!-- Shared zone labels column -->
-											<div class="zones-column labels-column">
-												<div class="zone-label">Arms</div>
-												<div class="zone-label">Shoulders &amp; Upper Back</div>
-												<div class="zone-label">Chest</div>
-												<div class="zone-label">Abdomen &amp; Lower Back</div>
-												<div class="zone-label">Hips</div>
-												<div class="zone-label">Thighs</div>
-											</div>
-
-											<!-- Female column -->
-											<div class="zones-column">
-												<h3 class="gender-title">Women</h3>
-												<div class="zones" data-gender="female">
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="arms" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -116,6 +57,25 @@
 															</div>
 														</div>
 													</div>
+												</td>
+											</tr>
+
+											<!-- Shoulders -->
+											<tr class="region-row">
+												<td class="region-label">Shoulders &amp; Upper Back</td>
+												<td class="bar-cell">
+													<div class="zone" data-region="shoulders" data-gender="male">
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="shoulders" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -126,6 +86,25 @@
 															</div>
 														</div>
 													</div>
+												</td>
+											</tr>
+
+											<!-- Chest -->
+											<tr class="region-row">
+												<td class="region-label">Chest</td>
+												<td class="bar-cell">
+													<div class="zone" data-region="chest" data-gender="male">
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="chest" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -136,6 +115,25 @@
 															</div>
 														</div>
 													</div>
+												</td>
+											</tr>
+
+											<!-- Abdomen -->
+											<tr class="region-row">
+												<td class="region-label">Abdomen &amp; Lower Back</td>
+												<td class="bar-cell">
+													<div class="zone" data-region="abdomen" data-gender="male">
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="abdomen" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -146,6 +144,25 @@
 															</div>
 														</div>
 													</div>
+												</td>
+											</tr>
+
+											<!-- Hips -->
+											<tr class="region-row">
+												<td class="region-label">Hips</td>
+												<td class="bar-cell">
+													<div class="zone" data-region="hips" data-gender="male">
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="hips" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -156,6 +173,25 @@
 															</div>
 														</div>
 													</div>
+												</td>
+											</tr>
+
+											<!-- Thighs -->
+											<tr class="region-row">
+												<td class="region-label">Thighs</td>
+												<td class="bar-cell">
+													<div class="zone" data-region="thighs" data-gender="male">
+														<div class="bar">
+															<div class="bar-track">
+																<div class="bar-fill-left"></div>
+																<div class="bar-fill-right"></div>
+																<div class="bar-center" aria-hidden="true"></div>
+																<div class="bar-value">--</div>
+															</div>
+														</div>
+													</div>
+												</td>
+												<td class="bar-cell">
 													<div class="zone" data-region="thighs" data-gender="female">
 														<div class="bar">
 															<div class="bar-track">
@@ -166,11 +202,10 @@
 															</div>
 														</div>
 													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-
+												</td>
+											</tr>
+										</tbody>
+									</table>
 									<div class="metrics">
 										<!-- summary moved to header to free space for bars -->
 									</div>

@@ -52,13 +52,13 @@ Comprehensive code review and enhancement completed for the Hormone & Fat Distri
 
 ---
 
-### 2. **styles.css** - Styling (195 lines)
+### 2. **styles.css** - Styling (645 lines)
 **Enhancements Made:**
 
 ✅ **Sectional Organization**
-- Divided CSS into logical sections with clear headers:
+- Divided CSS into 12 logical sections with clear headers:
   - CSS Variables & Global Defaults
-  - Layout: Main Container & Grid
+  - Layout: Main Container & Table
   - Controls: Sliders & Buttons
   - Visualization: Cards & Bars
   - Bar Visualization (detailed)
@@ -67,16 +67,28 @@ Comprehensive code review and enhancement completed for the Hormone & Fat Distri
   - Metrics & Notes
   - Body Fat Guidelines Section
   - References Section
-  - Zone Label Spacing
+  - Table Styling
   - Responsive Design
-  - Utility Classes
+
+✅ **Table Layout CSS**
+- `.distribution-table`: Semantic table styling with 100% width, border-collapse
+- `.region-row`: Row styling with hover effects for interactivity
+- `.region-label`: Left column with region names (35% width)
+- `.bar-cell`: Bar container cells (32.5% width each for male/female)
+- Minimal padding (4-6px) to eliminate mobile spacing issues
+
+✅ **Responsive Design**
+- Desktop (default): Full-size table with optimal spacing
+- Tablet breakpoint (880px): Reduced padding and font sizes
+- Mobile breakpoint (600px): Further optimization for small screens
+- Progressive size reduction maintains usability across all devices
 
 ✅ **Detailed Comments**
 - CSS Variables: Explained color tokens and their usage
-- Layout classes: Documented flex-based responsive design
+- Table classes: Documented table-based responsive design
 - Bar visualization: Detailed comments on transform-origin, transitions
 - Color system: Explained gradient and opacity rationale
-- Responsive breakpoints: Mobile and tablet considerations
+- Mobile considerations: Breakpoint rationale and optimizations
 
 ✅ **Readability Improvements**
 - Reformatted dense CSS declarations to multi-line for clarity
@@ -86,7 +98,35 @@ Comprehensive code review and enhancement completed for the Hormone & Fat Distri
 
 ---
 
-### 3. **README.md** - Comprehensive Documentation (650+ lines)
+### 3. **index.html** - Layout Optimization (363 lines)
+**Enhancements Made:**
+
+✅ **Table-Based Layout Conversion**
+- Converted from 3-column flex grid to semantic HTML table
+- Table structure: `<thead>` with column headers, `<tbody>` with 6 region rows
+- Column layout: Body Region label (35%) | Men (32.5%) | Women (32.5%)
+- Each row: region label + male bar cell + female bar cell
+
+✅ **Mobile Optimization**
+- Eliminated excess spacing issues on mobile devices
+- Direct alignment of labels and bars (no intermediate column gaps)
+- Better responsive behavior with minimal padding per cell
+- Improved readability on small screens (phones, tablets)
+
+✅ **Semantic Markup**
+- Uses `<table>` element for tabular data (6 body regions × 3 columns)
+- Proper `<thead>` and `<tbody>` sections
+- Data attributes preserved: `data-gender`, `data-region` for JavaScript selection
+- Accessible structure for screen readers
+
+✅ **CSS Class Structure**
+- New classes: `.distribution-table`, `.region-row`, `.bar-cell`, `.region-label`
+- Removed classes: `.zones-grid`, `.zones-column`, `.labels-column`, `.figure-wrap`
+- Cleaner styling hooks for table-specific CSS rules
+
+---
+
+### 4. **README.md** - Comprehensive Documentation (650+ lines)
 **New File Created With:**
 
 ✅ **Complete Table of Contents**
@@ -205,10 +245,10 @@ Comprehensive code review and enhancement completed for the Hormone & Fat Distri
 
 ```
 Hormone-vs-FatDistribution-Model/
-├── script.js              ✅ Enhanced with 100+ comment lines
-├── styles.css             ✅ Reorganized with 50+ section comments  
+├── script.js              ✅ Enhanced with 300+ comment lines
+├── styles.css             ✅ Reorganized into 12 sections; added table styling
+├── index.html             ✅ Converted from flex grid to HTML table layout
 ├── README.md              ✅ NEW - 650+ line comprehensive guide
-├── index.html             (No changes - already well-structured)
 └── models/mapping.js      (Backup file - mirrors script.js)
 ```
 

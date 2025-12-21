@@ -64,7 +64,7 @@ body {
   color: var(--muted);
 }
 
-/* Main two-column layout: visualization left, controls right */
+/* Two-column layout: visualization left, controls right */
 .layout {
   display: flex;
   gap: 20px;
@@ -74,6 +74,136 @@ body {
 .visual { flex: 1; }
 
 .controls { width: 360px; }
+
+/* ========================================
+   DISTRIBUTION TABLE (Mobile-Optimized)
+   ======================================== */
+
+.distribution-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.distribution-table thead {
+  background: #f5f5f5;
+  border-bottom: 2px solid #ddd;
+}
+
+.distribution-table th {
+  padding: 12px 8px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.distribution-table td {
+  padding: 8px 6px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.region-row:hover {
+  background: #fafafa;
+}
+
+.label-col {
+  width: 35%;
+  min-width: 120px;
+}
+
+.gender-col {
+  width: 32.5%;
+  min-width: 120px;
+}
+
+.region-label {
+  font-weight: 600;
+  font-size: 12px;
+  color: #111;
+  padding: 8px 6px !important;
+}
+
+.bar-cell {
+  padding: 4px 4px !important;
+  height: 30px;
+}
+
+.bar-cell .zone {
+  flex-direction: row !important;
+  gap: 0 !important;
+  height: 100%;
+}
+
+.bar-cell .bar {
+  height: 18px;
+}
+
+/* ========================================
+   RESPONSIVE TABLE LAYOUT
+   ======================================== */
+
+@media (max-width: 880px) {
+  .distribution-table {
+    font-size: 12px;
+  }
+
+  .distribution-table th,
+  .distribution-table td {
+    padding: 6px 4px;
+  }
+
+  .region-label {
+    font-size: 11px;
+    padding: 6px 4px !important;
+  }
+
+  .bar-cell {
+    padding: 3px 2px !important;
+  }
+
+  .bar-cell .bar {
+    height: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .controls {
+    width: 100%;
+  }
+
+  .distribution-table {
+    font-size: 11px;
+  }
+
+  .distribution-table th,
+  .distribution-table td {
+    padding: 5px 3px;
+  }
+
+  .label-col {
+    width: 40%;
+    font-size: 10px;
+  }
+
+  .gender-col {
+    width: 30%;
+  }
+
+  .bar-cell {
+    padding: 2px 2px !important;
+    height: 26px;
+  }
+
+  .bar-cell .bar {
+    height: 14px;
+  }
+}
 
 /* ========================================
    CONTROLS: Sliders & Buttons
@@ -125,6 +255,7 @@ button#resetBtn {
    VISUALIZATION: Cards & Bars
    ======================================== */
 
+
 .visual .card {
   background: var(--card);
   padding: 14px;
@@ -136,49 +267,6 @@ button#resetBtn {
   display: flex;
   gap: 18px;
   align-items: flex-start;
-}
-
-.figure-wrap {
-  position: relative;
-  width: 540px;
-  height: 520px;
-}
-
-/* Zones grid: displays male and female columns side-by-side */
-.zones-grid {
-  display: flex;
-  gap: 12px;
-}
-
-.zones-column {
-  width: 50%;
-}
-
-.gender-title {
-  margin: 0 0 8px;
-  font-size: 14px;
-  color: var(--muted);
-}
-
-/* Vertical stack of body regions */
-.zones {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 6px;
-}
-
-.zone {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.zone-label {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 20px 0;
-  text-align: center;
 }
 
 /* ========================================
@@ -506,35 +594,18 @@ button#resetBtn {
 }
 
 /* ========================================
-   ZONE LABEL SPACING ADJUSTMENTS
+   ZONE STYLING (Updated for table layout)
    ======================================== */
 
-.labels-column .zone-label:first-child {
-  margin: 25px 0;
-}
-
-.labels-column .zone-label:nth-child(2) {
-  margin: 5px 0;
-}
-
-.labels-column .zone-label:nth-child(3) {
-  margin: 15px 0;
-}
-
-.labels-column .zone-label:nth-child(4) {
-  margin: 10px 0;
-}
-
-.labels-column .zone-label:nth-child(5) {
-  margin: 10px 0;
-}
-
-.labels-column .zone-label:nth-child(6) {
-  margin: 10px 0;
+.zone {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 100%;
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (Updated for table)
    ======================================== */
 
 @media (max-width: 880px) {
@@ -545,11 +616,6 @@ button#resetBtn {
 
   .controls {
     width: 100%;
-  }
-
-  .figure-wrap {
-    width: 220px;
-    height: 420px;
   }
 }
 

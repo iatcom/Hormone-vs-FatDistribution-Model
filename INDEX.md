@@ -114,30 +114,32 @@ Key sections:
 
 ---
 
-### styles.css (195 lines, organized by section)
-**Visual presentation**
+### styles.css (645 lines, organized by section)
+**Visual presentation with table styling**
 
 Key sections:
-- Lines 1-60: Layout and containers
-- Lines 61-120: Bar visualization and animations
-- Lines 121-180: Guidelines and references sections
-- Lines 181-195: Responsive design
+- Lines 1-60: CSS variables and global defaults
+- Lines 61-150: Table layout and container styling
+- Lines 151-250: Bar visualization and animations
+- Lines 251-350: Guidelines and responsive design
+- Lines 351-645: Mobile breakpoints and utilities
 
-**Read this for**: Color scheme, responsive design, animations
+**Read this for**: Color scheme, responsive design, table styling, mobile optimization
 
 ---
 
-### index.html (328 lines, semantic markup)
-**HTML structure and content**
+### index.html (363 lines, semantic table markup)
+**HTML structure with responsive table layout**
 
 Contains:
 - Header with introduction
 - Hormone slider controls with tooltips
-- Visualization grid (male/female columns)
+- Visualization table (Body Region | Men | Women columns)
+- 6 body region rows with bars
 - Body fat guidelines section
 - Scientific references section
 
-**Read this for**: Page structure, understanding layout, modifying content
+**Read this for**: Page structure, understanding table layout, modifying content, mobile structure
 
 ---
 

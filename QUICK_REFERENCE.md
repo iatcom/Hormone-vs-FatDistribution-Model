@@ -18,7 +18,7 @@
 | **This File** | Quick reference and navigation | Quick lookups and navigation |
 | **script.js** | Core calculation logic | Understanding algorithms and implementation |
 | **styles.css** | Visual presentation | Styling modifications, responsive design |
-| **index.html** | HTML structure | Page layout and semantic markup |
+| **index.html** | HTML structure | Semantic table layout with 6 body regions and male/female columns |
 
 ---
 

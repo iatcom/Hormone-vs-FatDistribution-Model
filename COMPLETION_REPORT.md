@@ -13,8 +13,8 @@
 
 ### ✅ Code Review & Enhancement
 - **script.js**: Added 300+ lines of detailed comments explaining logic
-- **styles.css**: Reorganized with 12 major sections and inline comments
-- **index.html**: Already well-structured (no changes needed)
+- **styles.css**: Reorganized with 12 major sections; enhanced with table CSS
+- **index.html**: Converted from flex grid to semantic HTML table layout
 - **All functions**: Documented with purpose, parameters, and return values
 
 ### ✅ Documentation Created
@@ -85,16 +85,23 @@ Four comprehensive documentation files created:
 
 ### Styles.css Improvements
 ✅ **Organization**
-- Divided into 12 logical sections
-- Clear section headers
+- Divided into 12 logical sections with clear headers
+- Table-based layout CSS added for mobile optimization
 - Related styles grouped together
-- Consistent formatting
+- Consistent formatting throughout
+
+✅ **Table Styling**
+- `.distribution-table`: Main table with proper width and collapse
+- `.region-row`: Row styling with hover effects
+- `.bar-cell`: Bar container cells with minimal padding
+- `.region-label`: Region name columns with proper alignment
+- Mobile breakpoints: 880px (tablets), 600px (phones)
 
 ✅ **Comments Added**
 - CSS variables explained
-- Layout logic documented
+- Table layout logic documented
+- Mobile optimization rationale explained
 - Animation rationale explained
-- Responsive design noted
 - Color system documented
 
 ✅ **Readability**
@@ -102,6 +109,7 @@ Four comprehensive documentation files created:
 - Added whitespace strategically
 - Documented property purposes
 - Explained transition durations
+- Mobile-first responsive design notes
 
 ### Documentation Quality
 ✅ **Comprehensive Coverage**
@@ -140,8 +148,8 @@ Hormone-vs-FatDistribution-Model/
 │
 ├── 💻 SOURCE CODE (Enhanced with comments)
 │   ├── script.js                 ✅ Core logic (450+ lines, 300+ comments)
-│   ├── styles.css                ✅ Styling (195 lines, 50+ comments)
-│   └── index.html                ✅ HTML structure (328 lines)
+│   ├── styles.css                ✅ Styling (645 lines, table-based CSS)
+│   └── index.html                ✅ HTML table layout (363 lines)
 │
 ├── 📁 Supporting Files
 │   ├── models/mapping.js         (Backup of functions)
