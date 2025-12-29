@@ -12,45 +12,6 @@
  * - The model is purely educational and simplified for clarity
  */
 
-/**
- * Calculates total body fat percentage change based on hormone values.
- * Used for informational metrics about overall body composition impact.
- * 
- * @param {Object} hormones - Object with keys: insulin, cortisol, testosterone, estrogen (0-100)
- * @param {number} baselinePercent - Starting body fat percentage (default 25%)
- * @returns {Object} { deltaPercent: change in body fat %, newBodyFat: total body fat % }
- */
-function computeBodyFatImpact(hormones, baselinePercent = 25) {
-  // Normalize hormone values from 0-100 range to -1 to +1 range
-  // This centers the calculation at 50 (neutral baseline)
-  const norm = v => (v - 50) / 50;
-  
-  // Extract and normalize each hormone (using explicit undefined checks to handle value of 0)
-  const i = norm(hormones.insulin !== undefined ? hormones.insulin : 50);
-  const c = norm(hormones.cortisol !== undefined ? hormones.cortisol : 50);
-  const t = norm(hormones.testosterone !== undefined ? hormones.testosterone : 50);
-  const e = norm(hormones.estrogen !== undefined ? hormones.estrogen : 50);
-  
-  // Effect coefficients: how strongly each hormone influences total body fat
-  const coeff = { insulin: 1.0, cortisol: 0.6, testosterone: -0.7, estrogen: 0.1 };
-  
-  // Calculate weighted sum of hormone effects
-  let delta = i * coeff.insulin + c * coeff.cortisol + t * coeff.testosterone + e * coeff.estrogen;
-  
-  // Scale the combined effect
-  delta = delta * 1.8;
-  
-  // Clamp to reasonable range (-6% to +6% change)
-  delta = Math.max(-6, Math.min(6, delta));
-  
-  // Calculate new total body fat percentage (clamped 1-60%)
-  const newBodyFat = Math.max(1, Math.min(60, baselinePercent + delta));
-  
-  return { 
-    deltaPercent: Number(delta.toFixed(2)), 
-    newBodyFat: Number(newBodyFat.toFixed(2)) 
-  };
-}
 
 
 /**
@@ -80,8 +41,8 @@ function computeDistribution(hormones, gender = 'male'){
   // Male: tends to accumulate more abdominal fat
   // Female: tends to accumulate more hip and thigh fat
   const base = {
-    male:   { abdomen: 40, hips: 10, thighs: 15, arms: 15, chest: 20 },
-    female: { abdomen: 20, hips: 32, thighs: 28, arms: 10, chest: 10 }
+    male:   { abdomen: 40, VisceralFat: 15, hips: 10, thighs: 15, arms: 15, chest: 20 },
+    female: { abdomen: 20, VisceralFat: 10, hips: 32, thighs: 28, arms: 10, chest: 10 }
   };
   const b = base[gender] || base.male;
   
@@ -92,6 +53,7 @@ function computeDistribution(hormones, gender = 'male'){
   // 0 = hormone has no effect on that region
   const effects = {
     abdomen: { insulin: +1.3, cortisol: +1.0, testosterone: -0.7, estrogen: -0.2 },
+    VisceralFat: { insulin: +1.0, cortisol: +1.2, testosterone: -0.5, estrogen: -0.1 },
     hips:    { insulin: -0.2, cortisol: -0.25, testosterone: -0.4, estrogen: +0.9 },
     thighs:  { insulin: -0.2, cortisol: -0.2, testosterone: -0.35, estrogen: +0.8 },
     arms:    { insulin: -0.1, cortisol: +0.1, testosterone: +0.0, estrogen: 0 },
@@ -313,13 +275,6 @@ function updateOutputs() {
   const femaleMin = computeDistribution(hormonesMin, 'female').distribution;
   const femaleMax = computeDistribution(hormonesMax, 'female').distribution;
 
-  // Debug output (can be removed in production)
-  console.log('Current distributions:', {
-    maleDist: maleRes.distribution,
-    maleDelta: maleRes.delta,
-    femaleDist: femaleRes.distribution,
-    femaleDelta: femaleRes.delta
-  });
 
   // Step 6: Update visualization for each body region
   const ordered = ['arms', 'shoulders', 'chest', 'abdomen', 'hips', 'thighs'];
