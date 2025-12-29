@@ -110,7 +110,7 @@ Key sections:
 - Lines 190-225: `getColorForFillFraction()` - Color mapping
 - Lines 228-470: UI interaction and updates
 
-**Read this for**: Understanding hormone effects, calculation logic, color system
+**Read this for**: Understanding hormone effects, calculation log   ic, color system
 
 ---
 
