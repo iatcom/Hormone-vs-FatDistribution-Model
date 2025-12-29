@@ -95,6 +95,7 @@ function computeDistribution(hormones, gender = 'male'){
   const chest0 = raw.chest || 0;
   const arms0 = raw.arms || 0;
   const abdomen0 = raw.abdomen || 0;
+  const visceral0 = raw.VisceralFat || 0;
   const hips0 = raw.hips || 0;
   const thighs0 = raw.thighs || 0;
   
@@ -103,6 +104,7 @@ function computeDistribution(hormones, gender = 'male'){
     shoulders: Math.max(0.1, chest0 * 0.35 + arms0 * 0.15),
     chest: Math.max(0.1, chest0 * 0.6 + arms0 * 0.05),
     abdomen: Math.max(0.1, abdomen0),
+    VisceralFat: Math.max(0.1, visceral0),
     hips: Math.max(0.1, hips0),
     thighs: Math.max(0.1, thighs0)
   };
@@ -123,6 +125,7 @@ function computeDistribution(hormones, gender = 'male'){
     shoulders: Math.max(0.1, b.chest * 0.35 + b.arms * 0.15),
     chest: Math.max(0.1, b.chest * 0.6 + b.arms * 0.05),
     abdomen: Math.max(0.1, b.abdomen),
+    VisceralFat: Math.max(0.1, b.VisceralFat),
     hips: Math.max(0.1, b.hips),
     thighs: Math.max(0.1, b.thighs)
   };
@@ -277,7 +280,7 @@ function updateOutputs() {
 
 
   // Step 6: Update visualization for each body region
-  const ordered = ['arms', 'shoulders', 'chest', 'abdomen', 'hips', 'thighs'];
+  const ordered = ['arms', 'shoulders', 'chest', 'abdomen', 'VisceralFat', 'hips', 'thighs'];
   
   ordered.forEach(r => {
     // === MALE REGION ===
